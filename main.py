@@ -6,191 +6,38 @@
 # Print out each of the 5 integers, their average, and all 6 corresponding letter grades.
 # Use comments wherever your code isn't obvious, and remember to start with a comment with your name, date, and program title.
 
-# Import Library (random)
+# Was instructed to redo with optimized code. So here it is:
+
+# Import libraries
 import random
 
-# Generate the grades (5 random numbers from 50-100)
-random1 = random.randint(50,100)
-random2 = random.randint(50,100)
-random3 = random.randint(50,100)
-random4 = random.randint(50,100)
-random5 = random.randint(50,100)
+# Create empty list to fill later
+gradelist = []
 
-# Give the first grade a grade number (Ex: 100 = A)
-if random1 == 60:
-  grade1 = "D"
-if random1 == 70:
-  grade1 = "C"
-if random1 == 80:
-  grade1 = "B"
-if random1 == 90:
-  grade1 = "A"
-if random1 == 100:
-  grade1 = "A"
-if random1 < 60:
-  grade1 = "F"
-if random1 < 70:
-  if random1 > 60:
-    grade1 = "D"
-if random1 < 80:
-  if random1 > 70:
-    grade1 = "C"
-if random1 < 90:
-  if random1 > 80:
-    grade1 = "B"
-if random1 < 100:
-  if random1 > 90:
-    grade1 = "A"
-print(f'Grade 1: {random1} {grade1}')
+# Calculare grade letter function
+def grade_letter(grade):
+    if grade >= 90:
+        return 'A'
+    elif 89 > grade >= 80:
+        return 'B'
+    elif 79 > grade >= 70:
+        return 'C'
+    elif 69 > grade >= 60:
+        return 'D'
+    else:
+        return 'F'
 
-# Give the second grade a grade number (Ex: 100 = A)
-if random2 == 60:
-  grade2 = "D"
-if random2 == 70:
-  grade2 = "C"
-if random2 == 80:
-  grade2 = "B"
-if random2 == 90:
-  grade2 = "A"
-if random2 == 100:
-  grade2 = "A"
-if random2 < 60:
-  grade2 = "F"
-if random2 < 70:
-  if random2 > 60:
-    grade2 = "D"
-if random2 < 80:
-  if random2 > 70:
-    grade2 = "C"
-if random2 < 90:
-  if random2 > 80:
-    grade2 = "B"
-if random2 < 100:
-  if random2 > 90:
-    grade2 = "A"
-print(f'Grade 2: {random2} {grade2}')
 
-# Give the third grade a grade number (Ex: 100 = A)
-if random3 == 60:
-  grade3 = "D"
-if random3 == 70:
-  grade3 = "C"
-if random3 == 80:
-  grade3 = "B"
-if random3 == 90:
-  grade3 = "A"
-if random3 == 100:
-  grade3 = "A"
-if random3 < 60:
-  grade3 = "F"
-if random3 < 70:
-  if random3 > 60:
-    grade3 = "D"
-if random3 < 80:
-  if random3 > 70:
-    grade3 = "C"
-if random3 < 90:
-  if random3 > 80:
-    grade3 = "B"
-if random3 < 100:
-  if random3 > 90:
-    grade3 = "A"
-print(f'Grade 3: {random3} {grade3}')
+# Create grades and add them to empty list
+for i in range(0, 5):
+    randomgrade = random.randint(50, 100)
+    gradelist.append(randomgrade)
+    print(f'Grade: {randomgrade} {grade_letter(randomgrade)}')
 
-# Give the fourth grade a grade number (Ex: 100 = A)
-if random4 == 60:
-  grade4 = "D"
-if random4 == 70:
-  grade4 = "C"
-if random4 == 80:
-  grade4 = "B"
-if random4 == 90:
-  grade4 = "A"
-if random4 == 100:
-  grade4 = "A"
-if random4 < 60:
-  grade4 = "F"
-if random4 < 70:
-  if random4 > 60:
-    grade4 = "D"
-if random4 < 80:
-  if random4 > 70:
-    grade4 = "C"
-if random4 < 90:
-  if random4 > 80:
-    grade4 = "B"
-if random4 < 100:
-  if random4 > 90:
-    grade4 = "A"
-print(f'Grade 4: {random4} {grade4}')
+# Get average of the grades
+average = sum(gradelist) / len(gradelist)
 
-# Give the fifth grade a grade number (Ex: 100 = A)
-if random5 == 60:
-  grade5 = "D"
-if random5 == 70:
-  grade5 = "C"
-if random5 == 80:
-  grade5 = "B"
-if random5 == 90:
-  grade5 = "A"
-if random5 == 100:
-  grade5 = "A"
-if random5 < 60:
-  grade5 = "F"
-if random5 < 70:
-  if random5 > 60:
-    grade5 = "D"
-if random5 < 80:
-  if random5 > 70:
-    grade5 = "C"
-if random5 < 90:
-  if random5 > 80:
-    grade5 = "B"
-if random5 < 100:
-  if random5 > 90:
-    grade5 = "A"
-print(f'Grade 5: {random5} {grade5}')
-
-# Calculate average
-average = (random1+random2+random3+random4+random5)/5
-
-# Give average a grade letter (Ex: 100 = A)
-if average == 60:
-  averageletter = "D"
-if average == 70:
-  averageletter = "C"
-if average == 80:
-  averageletter = "B"
-if average == 90:
-  averageletter = "A"
-if average == 100:
-  averageletter = "A"
-if average < 60:
-  averageletter = "F"
-if average < 70:
-  if average > 60:
-    averageletter = "D"
-if average < 80:
-  if average > 70:
-    averageletter = "C"
-if average < 90:
-  if average > 80:
-    averageletter = "B"
-if average < 100:
-  if average > 90:
-    averageletter = "A"
-print(f'Grade 5: {random5} {grade5}')
-
-# Print average grade & letter
-print(f'Average Grade: {average} {averageletter}')
+# Print finished data
+print(f'Grade Average: {average} {grade_letter(randomgrade)}')
 
 # Comment with name, date, and assignment name redacted
-
-
-
-# About 90% of the way done I figured out I could have done
-
-# if 60 < random < 70:
-#    print(random)
-
-# instead. Since I was almost done, I just stuck with the non-optimized code.
